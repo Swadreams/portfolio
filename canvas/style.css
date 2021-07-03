@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.canvas {
+  background: url(./img/bg1.png) center center/cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+section {
+  color: #616161;
+  line-height: 11pt;
+  padding: 70px 0 70px 0;
+  position: relative;
+}
+
+section:nth-of-type(1) {
+  color: #fff;
+  height: calc(100vh + 53px);
+  padding: 0 10px;
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overflow-wrap {
+  overflow-x: hidden;
+}
+
+nav {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: #1b242f;
+  border-bottom: 3px solid #04c2c9;
+  height: 50px;
+  text-align: left;
+  width: 100%;
+  z-index: 99;
+}
+
+nav .link-wrap {
+  background: #333;
+  height: 0;
+  max-width: 1200px;
+  overflow: hidden;
+  position: absolute;
+  top: 53px;
+  transition: height 0.3s ease-out;
+  width: 100%;
+}
+
+nav .link-wrap div {
+  cursor: pointer;
+  font-size: 12pt;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  transition: color 0.5s;
+}
+
+nav .active {
+  color: #e31b6d;
+}
+
+@media screen and (min-width: 600px) {
+  nav .link-wrap {
+    background: none;
+    height: initial;
+    overflow: visible;
+    position: initial;
+    text-align: left;
+  }
+}
+
+nav .link-wrap div:first-child {
+  padding: 25px 20px 12px 20px;
+}
+
+@media screen and (min-width: 600px) {
+  nav .link-wrap div:first-child {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  nav .link-wrap div {
+    display: inline;
+    font-size: initial;
+    margin: 0 20px;
+    padding: initial;
+  }
+}
+
+nav.fixed.desk {
+  animation: popDown 0.5s;
+}
+
+@keyframes popDown {
+  0% {
+    transform: translateY(-100px);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav.fixed {
+  bottom: inherit;
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
+@media screen and (min-width: 960px) {
+  .canvas {
+    background: #252934;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  section {
+    line-height: 18pt;
+    padding: 100px 0 130px 0;
+  }
+}
