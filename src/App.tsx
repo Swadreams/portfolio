@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import Button from './app/components/Button/Button';
+import Navigation from './app/screens/Navigation/Navigation';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function App() {
   // const hamburger_menu = document.querySelector('.hamburger-menu');
@@ -23,75 +27,71 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <div className='container'>
-        <div className='navbar'>
-          <div className='menu'>
-            <h3 className='logo'>
-              Brand<span>Name</span>
-            </h3>
-            <div className='hamburger-menu' onClick={toggleClass}>
-              <div className='bar'></div>
+    <Router>
+      <div className='App'>
+        <div className='container'>
+          <div className='navbar'>
+            <div className='menu'>
+              <h3 className='logo'>
+                <span>S</span>
+                <span>c</span>
+              </h3>
+              <div className='hamburger-menu' onClick={toggleClass}>
+                <div className='bar'></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className='main-container'>
-          <div className='main'>
-            <header>
-              <div className='overlay'>
-                <div className='inner'>
-                  <h2 className='title'>Future is here</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laudantium illum tenetur consequatur veritatis?
-                  </p>
-                  <button className='btn'>Read more</button>
+          <div className='main-container'>
+            <div className='main'>
+              <header>
+                <div className='overlay'>
+                  <Navigation />
                 </div>
-              </div>
-            </header>
+              </header>
+            </div>
+
+            <div className='shadow one'></div>
+            <div className='shadow two'></div>
           </div>
 
-          <div className='shadow one'></div>
-          <div className='shadow two'></div>
-        </div>
-
-        <div className='links'>
-          <ul>
-            <li onClick={toggleClass}>
-              <a href='#' style={getStyle('0.05')}>
-                Home
-              </a>
-            </li>
-            <li onClick={toggleClass}>
-              <a href='#' style={getStyle('0.1')}>
-                Services
-              </a>
-            </li>
-            <li>
-              <a href='#' style={getStyle('0.15')}>
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a href='#' style={getStyle('0.2')}>
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a href='#' style={getStyle('0.25')}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href='#' style={getStyle('0.3')}>
-                Contact
-              </a>
-            </li>
-          </ul>
+          <div className='links'>
+            <ul>
+              <li onClick={toggleClass}>
+                <Link to='/' style={getStyle('0.05')}>
+                  Home
+                </Link>
+              </li>
+              <li onClick={toggleClass}>
+                <Link to='/about' style={getStyle('0.1')}>
+                  About
+                </Link>
+              </li>
+              <li onClick={toggleClass}>
+                <Link to='/projects' style={getStyle('0.15')}>
+                  Projects
+                </Link>
+              </li>
+              {/* <li>
+                <a href='#' style={getStyle('0.2')}>
+                  Testimonials
+                </a>
+              </li>
+              <li>
+                <a href='#' style={getStyle('0.25')}>
+                  About
+                </a>
+              </li>
+              <li>
+                <a href='#' style={getStyle('0.3')}>
+                  Contact
+                </a>
+              </li> */}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
